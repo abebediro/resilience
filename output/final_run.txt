@@ -1,1 +1,369 @@
 
+======================================================================
+  0. MODEL TESTS & PROPERTY VERIFICATION
+======================================================================
+
+============================================================
+Running Model Tests & Property Verification
+============================================================
+  ✓ Theorem 1.1: Order invariance
+  ✓ Theorem 1.1: Monotonicity
+  ✓ Theorem 1.3: Bounds [0, 1]
+  ✓ Theorem 1.4: Complementarity (cross-partials positive)
+  ✓ Theorem 1.2: Joint concavity (diminishing returns)
+  ✓ Lemma 1: Supply chain leverage L=1.942 >= 1
+  ✓ Theorem 2: Stable equilibrium (S*_threat=1.594, eigenvalue=-0.1296)
+  ✓ Axiom 1: Monotone decay without investment
+  ✓ Axiom 2: Diminishing returns
+  ✓ Axiom 4: Adversary response
+  ✓ Axiom 5: Supply chain propagation
+  ✓ Simulation stability and bounds
+  ✓ Geopolitical shock scenarios
+  ✓ Adaptation enhancement (multiplier: 1.154)
+  ✓ Copula extension (indep=0.822, copula=0.692)
+  ✓ Environment modifiers >= 1
+
+============================================================
+Results: 16 passed, 0 failed out of 16
+============================================================
+
+
+======================================================================
+  1. BASELINE SIMULATION (Table V, Fig. 5)
+======================================================================
+
+Baseline Resilience Trajectory (Table V):
+  Year   R_system  R_effective     Growth
+------------------------------------------
+     0      0.283        0.283         --
+     3      0.635        0.599      +5.4%
+     5      0.726        0.658      +5.9%
+     8      0.810        0.699      +2.9%
+    10      0.864        0.728      +2.9%
+    15      0.917        0.746      +0.6%
+    20      0.928        0.744      +0.1%
+
+  → Saved: baseline_trajectory.png, feedback_loop_dominance.png
+
+======================================================================
+  2. THEOREM & PROPERTY VERIFICATION
+======================================================================
+
+Theorem 1 Properties:
+  order_invariant     : ✓
+  monotone            : ✓
+  bounded             : ✓
+  jointly_concave     : ✓
+  super_additive      : ✗
+
+Lemma 1: Supply chain leverage L = 1.942 (expected ~1.47)
+
+Theorem 2: Red Queen Equilibrium
+  S*_threat     = 1.5938
+  R*_system     = 0.8500
+  R*_effective  = 0.3562
+  Contraction   = 0.7292 < 1: True
+  Eigenvalue    = -0.1296 < 0: True
+
+Super-Additivity Check:
+  Sum of individual gains: 0.0020
+  Joint gain:              0.0682
+  Super-additive:          True (ratio: 34.89)
+
+======================================================================
+  3. ADVERSARY DYNAMICS & RED QUEEN EFFECT (Fig. 8-9)
+======================================================================
+
+  → Saved: adversary_dynamics.png
+  Year 10: Erosion = 15.7%
+  Year 15: Erosion = 18.6%
+  Year 20: Erosion = 19.8%
+
+======================================================================
+  4. STRATEGY COMPARISON (Table VI)
+======================================================================
+
+Strategy Performance Comparison
+-----------------------------------------------------------------
+Strategy               Yr 5    Yr 10    Yr 15    Yr 20  Δ vs base
+-----------------------------------------------------------------
+Baseline              0.658    0.728    0.746    0.744      +0.0%
+Preparedness          0.665    0.739    0.753    0.741      +1.4%
+Resistance            0.633    0.701    0.722    0.721      -3.7%
+Restoration           0.669    0.736    0.747    0.741      +1.0%
+Adaptation            0.658    0.731    0.753    0.753      +0.4%
+Supply Chain          0.666    0.736    0.752    0.750      +1.0%
+Holistic              0.710    0.777    0.779    0.769      +6.7%
+Balanced              0.721    0.809    0.802    0.792     +11.0%
+-----------------------------------------------------------------
+
+  → Saved: strategy_comparison.png
+
+======================================================================
+  5. MONTE CARLO SIMULATION (Fig. 10)
+======================================================================
+  Running 500 MC iterations (use 10000 for paper quality)...
+  MC iteration 50/500
+  MC iteration 100/500
+  MC iteration 150/500
+  MC iteration 200/500
+  MC iteration 250/500
+  MC iteration 300/500
+  MC iteration 350/500
+  MC iteration 400/500
+  MC iteration 450/500
+  MC iteration 500/500
+
+MC Statistics at Year 10:
+  Mean:   0.873
+  Median: 0.873
+  Std:    0.028
+  80% CI: [0.836, 0.909]
+  CV:     3.2%
+
+Robustness (Table VIII):
+  logistic_growth                    : 100.0%
+  red_queen_gt_15pct                 : 46.0%
+  supply_chain_leverage              : 89.0%
+  early_investment_compounding       : 100.0%
+
+  → Saved: monte_carlo_distributions.png
+
+======================================================================
+  6. SOBOL SENSITIVITY ANALYSIS (Table VII, Fig. 7)
+======================================================================
+  Running Sobol with N=128 base samples...
+Sobol analysis: 128 base samples, 4608 total evaluations
+  Evaluating 2432 model runs...
+    243/2432
+    486/2432
+    729/2432
+    972/2432
+    1215/2432
+    1458/2432
+    1701/2432
+    1944/2432
+    2187/2432
+    2430/2432
+
+Parameter Sensitivity (Sobol Indices, Year 10)
+---------------------------------------------------------------------------
+ # Parameter                 S_i     S_Ti   Cumul.   Elast.
+---------------------------------------------------------------------------
+ 1 gamma_threat            0.495    0.505     49%    -0.19
+ 2 theta                   0.278    0.276     77%    -0.13
+ 3 k_restore               0.080    0.080     85%    -0.07
+ 4 delta_threat            0.074    0.058     93%    +0.06
+ 5 k_supply                0.023    0.031     95%    -0.05
+ 6 beta                    0.029    0.023     98%    -0.04
+ 7 k_prep                  0.018    0.012    100%    -0.03
+ 8 phi                     0.006    0.010    100%    -0.03
+ 9 S_threat_min            0.009    0.010    101%    +0.03
+10 alpha                   0.001    0.004    101%    -0.02
+---------------------------------------------------------------------------
+
+  → Saved: sensitivity_tornado.png
+
+======================================================================
+  7. COPULA CORRELATED FAILURE ANALYSIS
+======================================================================
+
+Copula Analysis at Year 10
+-------------------------------------------------------
+   rho   R_copula    R_indep   Overest.
+-------------------------------------------------------
+  0.00     0.8636     0.8636      -0.0%
+  0.10     0.8404     0.8636      +2.7%
+  0.20     0.8096     0.8636      +6.3%
+  0.30     0.7768     0.8636     +10.0%
+  0.40     0.7348     0.8636     +14.9%
+  0.50     0.7134     0.8636     +17.4%
+  0.60     0.6780     0.8636     +21.5%
+-------------------------------------------------------
+
+Holistic still best at ρ=0.4: True
+
+  → Saved: copula_analysis.png
+
+======================================================================
+  8. BAYESIAN DELPHI AGGREGATION (Fig. 4)
+======================================================================
+  Running Bayesian aggregation for all 17 parameters...
+
+Parameter        Posterior Mean                    80% CI    R-hat
+--------------------------------------------------------------------
+k_prep                   0.0482 [0.0453, 0.0512]        1.000
+k_resist                 0.0687 [0.0653, 0.0722]        1.000
+k_restore                0.1239 [0.1157, 0.1321]        1.000
+k_adapt                  0.0300 [0.0279, 0.0321]        1.000
+k_supply                 0.1051 [0.0985, 0.1117]        1.000
+alpha                    0.8561 [0.8171, 0.8937]        1.000
+beta                     1.1956 [1.1315, 1.2584]        1.000
+gamma                    0.8661 [0.8147, 0.9187]        1.000
+
+  → Saved: posterior_distributions.png
+
+======================================================================
+  9. MODEL VALIDATION
+======================================================================
+
+Comparative Performance, 10-fold CV on the disclosed coded corpus
+(n=63; Appendix H.3 catalog + S.4 implication matrix)
+------------------------------------------------------------------
+Model                     RMSE       r     MAPE
+------------------------------------------------------------------
+Naive mean               0.178   -0.33    33.5%
+Static risk (FAIR)       0.373    0.86    64.9%
+Resilience triangle      0.142    0.99    24.6%
+Linear additive          0.086    0.87    12.9%
+Indep. dimensions        0.101    0.82    11.7%
+Proposed (full)          0.065    0.93    10.0%
+------------------------------------------------------------------
+  Note: disclosed-subset metrics differ from the paper's full-corpus
+  values (0.42 / 0.78): 7 member-confidential incidents are withheld
+  and the S.3 anchored coding is deterministic on this subset.
+
+Pre-registered criterion (Appendix S.2, r>=0.6 & MAPE<=20%): r=0.93, MAPE=10.0% -> MET
+
+Temporal Split (train 2007-2017, test 2018-2022):
+  Calibration: RMSE=0.053, r=0.940 (n=27)
+  Validation:  RMSE=0.071, r=0.931 (n=36)
+
+Posterior Predictive p-value: 0.442
+
+  → Saved: residual_analysis.png
+
+======================================================================
+  10. CASE STUDIES
+======================================================================
+
+============================================================
+Case Study: 2022 Viasat KA-SAT Disruption
+============================================================
+
+Pre-Attack Posture:
+  Preparedness   : 0.31  CI [0.25, 0.37]  (No prior modem warnings)
+  Resistance     : 0.28  CI [0.22, 0.34]  (Consumer-grade security)
+  Restoration    : 0.22  CI [0.17, 0.27]  (No remote recovery)
+  Adaptation     : 0.18  CI [0.14, 0.22]  (Limited prior incidents)
+  Supply_Chain   : 0.35  CI [0.29, 0.41]  (Multi-vendor chain)
+
+Model Predictions:
+  attack_probability       : 0.458
+  recovery_days            : 58.080
+  breach_extent            : 0.658
+  R_system                 : 0.542
+
+Fit Statistics:
+  theils_U            : 0.127
+  MAPE                : 24.172
+  LR_statistic        : 10.112
+  correlation         : 1.000
+
+95% Prediction Intervals:
+  recovery       : [56.36, 59.79]
+  breach         : [0.61, 0.71]
+  attack_prob    : [0.41, 0.51]
+
+============================================================
+Case Study: 2022 Starlink RF Interference
+============================================================
+
+Pre-Attack Posture:
+  Preparedness   : 0.38  CI [0.31, 0.45]  (Conflict zone operational awareness)
+  Resistance     : 0.52  CI [0.44, 0.60]  (Hardened terminals, LEO redundancy)
+  Restoration    : 0.41  CI [0.34, 0.48]  (Software-updatable terminals)
+  Adaptation     : 0.45  CI [0.38, 0.52]  (Rapid software iteration capability)
+  Supply_Chain   : 0.55  CI [0.47, 0.63]  (Vertically integrated manufacturing)
+
+Model Predictions:
+  attack_probability       : 0.172
+  service_degradation      : 0.086
+  recovery_days            : 5.885
+  R_system                 : 0.828
+
+AHP-weighted posture indices (main-text operational comparison):
+  Viasat KA-SAT : 0.272  (paper ~0.27)
+  Starlink      : 0.472  (paper ~0.48)
+
+======================================================================
+  11. AHP WEIGHT SENSITIVITY
+======================================================================
+
+Scenario                  R_sys (yr10) R_eff (yr10)
+----------------------------------------------------
+ahp_appendix                     0.864        0.728
+main_text                        0.929        0.778
+balanced                         0.969        0.809
+adaptation_focused               0.976        0.815
+resistance_focused               0.876        0.738
+data_informed                    0.896        0.753
+
+======================================================================
+  12. OPERATIONAL-CONSTRAINT SCENARIOS (C1-C3, Appendix P)
+======================================================================
+
+Reference holistic advantage (yr 10): 6.7%
+C1 budget simplex w/ premiums:        7.6%  (paper: 11.6% -> 9.4%)
+C2 tight cap (A_max=0.85): erosion(20) = 17.9% (bounded <24%: True)
+   Red Queen tax multiplier yr 20: capped 1.22x vs unbounded 1.54x
+C3 replacement (T_cyc=5): resilience +0.3%, cost +22.0%  (paper: +4% / +22%)
+
+======================================================================
+  13. PRIOR-PERTURBATION ROBUSTNESS (Appendix Q.1)
+======================================================================
+
+baseline:
+  Holistic advantage (yr10): 6.7%
+  Red Queen erosion (yr10):  15.7%
+  Supply-chain leverage L:   1.71
+
+adverse_joint_shift:
+  Holistic advantage (yr10): 6.7%
+  Red Queen erosion (yr10):  18.2%
+  Supply-chain leverage L:   1.71
+
+Policy conclusions survive adverse shift (theta=0.15, eta=0.38, gamma=0.98):
+  Holistic advantage > 0: True
+  Leverage L > 1:         True
+  Erosion > 10%:          True
+
+======================================================================
+  14. EXTREME-CONDITION TESTS (TC01-TC08)
+======================================================================
+
+Extreme-Condition Tests (Appendix B.1 / I.3)
+-------------------------------------------------------
+  TC01 zero investment: final stocks [0.104 0.014 0.    0.025 0.001] -> PASS
+  TC02 resistance-only: peak 0.49 at yr 1, declines to 0.33 -> PASS
+  TC03 deep-space latency: prep/adapt degraded -> PASS
+  TC04 perfect supply chain: effective capacities lifted -> PASS
+  TC05 theta=0.30: peak 0.68, final 0.68 -> PASS
+  TC06 theta=0: no Red Queen erosion -> PASS
+  TC07 gamma=2.0: resistance 0.17 vs baseline-gamma 0.28 at yr 10 (no invest) -> PASS
+  TC08 zero supply chain: eff_resist=0.064, eff_prep=0.087 -> PASS
+-------------------------------------------------------
+8/8 extreme-condition tests passed
+
+======================================================================
+  SUMMARY OF KEY FINDINGS
+======================================================================
+
+  ┌─────────────────────────────────────────────────────────┐
+  │ Finding                        │ Result                 │
+  ├─────────────────────────────────────────────────────────┤
+  │ Growth pattern                 │ Logistic (3 phases)    │
+  │ Holistic advantage (yr 10)     │ +6.7%               │
+  │ Holistic advantage (yr 15)     │ +4.4%               │
+  │ Supply chain leverage          │ 1.94×                │
+  │ Red Queen erosion (yr 10)      │ 15.7%              │
+  │ Red Queen erosion (yr 20)      │ 19.8%              │
+  │ Super-additivity               │ Confirmed              │
+  │ MC logistic pattern            │ 100% of runs           │
+  └─────────────────────────────────────────────────────────┘
+
+  Output directory: /home/claude/space_cyber_resilience/output
+  Total runtime:    40.2 seconds
+  Figures generated: 9
+
+Done! All analyses complete.
