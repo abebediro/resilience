@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,graphicx,float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\graphicspath{{./}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\title{\vspace{-2em}Tripartite Space Cybersecurity Resilience Model:\\
+Computed Results, Figures, and Tables}
+\author{Abebe Diro \and Angela An \and Abera Tullu}
+\date{Generated from live model output}
+
+\begin{document}
+\maketitle
+
+\noindent All values below are live output from the reference
+implementation (calibrated parameter set; finite-adversary cap active;
+$n=63$ disclosed incident corpus; 10-fold cross-validation with seed 42).
+Figures are vector PDFs produced by the analysis pipeline. Tables are
+emitted by \texttt{make\_tables.py} and reproduce the paper's Table~V--VII
+family with recomputed numbers.
+
+\section{Result Tables}
+\input{result_tables_H.tex}
+
+\clearpage
+\section{Figures}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{baseline_trajectory.pdf}
+\caption{Baseline resilience trajectory with credible intervals; three
+growth phases (foundation, acceleration, maturation) annotated.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{adversary_dynamics.pdf}
+\caption{Technical vs.\ effective resilience under adversary co-evolution;
+Red Queen erosion shaded, annotated at years 10 and 20.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{strategy_comparison.pdf}
+\caption{Strategy comparison: holistic vs.\ specialized single-dimension
+allocations over the mission lifecycle.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{feedback_loop_dominance.pdf}
+\caption{Feedback-loop dominance (B1, B2, R1, R2) over the mission
+lifecycle, producing the Red Queen plateau.}
+\end{figure}
+
+\clearpage
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{monte_carlo_distributions.pdf}
+\caption{Monte Carlo output distributions for system resilience at years
+5, 10, 15, and 20.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{sensitivity_tornado.pdf}
+\caption{Parameter sensitivity: first- and total-order Sobol indices at
+year 10.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{copula_analysis.pdf}
+\caption{Copula-based correlated-failure analysis across
+$\rho\in[0,0.6]$.}
+\end{figure}
+
+\clearpage
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{posterior_distributions.pdf}
+\caption{Posterior distributions of six key parameters from Bayesian
+aggregation of expert judgments.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.82\textwidth]{residual_analysis.pdf}
+\caption{Residual analysis for historical validation on the disclosed
+corpus.}
+\end{figure}
+
+\end{document}
