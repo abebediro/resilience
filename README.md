@@ -40,21 +40,20 @@ A tripartite resilience model combining:
 │
 └── supplementary/            # archival data & documentation (appendix material)
     ├── delphi/               # consent form, Round-1 questionnaire, expert panel,
-    │                         #   per-expert raw responses, convergence, final params, AHP, Bayesian model   [App. A]
+    │                         #   per-expert raw responses, convergence, final params, AHP, Bayesian model   
     ├── incidents/            # 63 disclosed incidents (catalog + coding matrix), coding
-    │                         #   manual, source verification, summary stats, attribution        [App. H, S]
+    │                         #   manual, source verification, summary stats, attribution        
     ├── extended_analysis/    # full sensitivity tables, Viasat case study, limitations, cost
     │                         #   functions, cross-background, epistemic provenance, operational
-    │                         #   constraints, deployment pathway, extended derivations   [App. C,D,F,J,N,O,P,R]
-    ├── reference/            # nomenclature, glossary                                       [App. G, M]
-    ├── validation/           # model validation & selection diagnostics                    [App. B]
-    ├── vensim/               # Vensim system-dynamics equation listing                     [App. I]
+    │                         #   constraints, deployment pathway, extended derivations  
+    ├── reference/            # nomenclature, glossary                                       
+    ├── validation/           # model validation & selection diagnostics                    
+    ├── vensim/               # Vensim system-dynamics equation listing                     
     └── appendix_reference_code_notes/   # notes on the appendix reference transcription (see below)
 ```
 
 The **core proofs** (Theorem 1, Theorem 2, Corollary 1, Lemma 1) and the
-identifiability analysis (9- vs. 17-parameter model) live in the
-journal's 6-page Supplementary Material, not here — see the manuscript.
+identifiability analysis are included in the  Supplementary Material, not here — see the manuscript.
 
 ## Installation
 
@@ -119,20 +118,9 @@ in `supplementary/appendix_reference_code_notes/KNOWN_ISSUES.md`. The
 transcription itself is not carried here to avoid two divergent copies of the
 same model — the paper's appendix and the notes preserve its provenance.
 
-## Confidentiality
-
-Aggregate statistics use n=70 incidents; only 63 are disclosed at item level.
-7 Space-ISAC member-confidential incidents are withheld per disclosure terms
-— see `supplementary/incidents/NOTE_confidential.md`. Do not attempt to
-reverse-engineer their content from aggregate counts.
 
 ## License
 
 Data and documentation: CC-BY 4.0. Code: MIT. See `LICENSE`. Confirm before
 publishing — these are the suggested defaults, not a venue requirement.
 
-## Provenance
-
-Archival tabular content under `supplementary/` was transcribed from the
-authors' original LaTeX appendices (A–S) when the ~50-page appendix was split
-into a page-limited journal supplement plus this repository.
