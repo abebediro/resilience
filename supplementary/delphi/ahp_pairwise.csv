@@ -1,0 +1,6 @@
+dimension,vs_prep,vs_resist,vs_restore,vs_adapt,vs_supply,derived_weight
+Preparedness,1.00,0.33,0.50,3.00,2.00,0.153
+Resistance,3.00,1.00,2.00,5.00,4.00,0.462
+Restoration,2.00,0.50,1.00,4.00,3.00,0.231
+Adaptation,0.33,0.20,0.25,1.00,0.50,0.058
+SupplyChain,0.50,0.25,0.33,2.00,1.00,0.096

@@ -1,0 +1,16 @@
+id,category,years_exp,region,organization_type,expertise_area
+E01,Operator,18,USA,Commercial SATCOM,LEO constellation security
+E02,Operator,15,Europe,Government,Military satellite ops
+E03,Operator,12,Asia,Commercial,GEO communications
+E04,Operator,14,USA,Government,Reconnaissance systems
+E05,Operator,12,Europe,Commercial,Broadband services
+E06,Academic,18,USA,University,Resilience engineering
+E07,Academic,12,Europe,Research institute,Cyber-physical systems
+E08,Academic,10,Australia,University,Supply chain risk
+E09,Academic,7,Europe,University,Adversary modeling
+E10,Government,22,USA,Defense agency,Space policy
+E11,Government,15,Europe,Space agency,Mission assurance
+E12,Government,12,USA,Regulatory,Standards development
+E13,Vendor,11,USA,Cybersecurity firm,Satellite hardening
+E14,Vendor,9,Israel,Security vendor,Threat intelligence
+E15,Vendor,8,USA,Aerospace contractor,Secure communications

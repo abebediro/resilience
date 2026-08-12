@@ -1,0 +1,10 @@
+parameter,r1_cv_pct,r2_cv_pct,convergence_pct,r3_required
+k_prep,25.5,20.1,-5.4,Yes
+k_adapt,37.5,28.3,-9.2,Yes
+k_restore,23.3,19.2,-4.1,Yes
+mu,11.4,10.1,-1.3,No
+theta,24.4,18.7,-5.7,Yes
+gamma_threat,17.5,14.2,-3.3,No
+beta,13.6,11.5,-2.1,No
+psi_resist,12.2,10.3,-1.9,No
+gamma_T,25.4,19.8,-5.6,Yes
