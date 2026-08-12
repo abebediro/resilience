@@ -1,0 +1,32 @@
+symbol,description,unit,first_appearance
+alpha,Latency sensitivity coefficient,dimensionless,Eq. 10
+beta,Inaccessibility penalty coefficient,dimensionless,Eq. 27
+delta_threat,Threat technique obsolescence rate,yr^-1,Eq. 48
+gamma,Radiation sensitivity coefficient,dimensionless,Eq. 18
+gamma_T,Thermal cycling sensitivity,dimensionless,Eq. 18
+gamma_threat,Maximum threat impact fraction,dimensionless,Eq. 49
+eta,Supply chain risk sensitivity,dimensionless,Eq. 38
+theta,Adversary learning rate,yr^-1,Eq. 48
+mu,Preparedness superlinear exponent,dimensionless,Eq. 10
+nu,Supply chain complexity sensitivity,dimensionless,Eq. 38
+xi_adapt,SC cascade coefficient (Adaptation),dimensionless,Eq. 3
+xi_prep,SC cascade coefficient (Preparedness),dimensionless,Eq. 3
+xi_resist,SC cascade coefficient (Resistance),dimensionless,Eq. 3
+xi_restore,SC cascade coefficient (Restoration),dimensionless,Eq. 3
+phi,Adversary capability amplification,dimensionless,Eq. 48
+psi_prep,Adaptation amplification (Prep.),dimensionless,Eq. 41
+psi_res,Adaptation amplification (Resist.),dimensionless,Eq. 42
+psi_rest,Adaptation amplification (Restor.),dimensionless,Eq. 43
+psi_supply,Adaptation amplification (Supply),dimensionless,Eq. 44
+tau_prep,Learning time constant (Prep.),years,Eq. 41
+tau_res,Learning time constant (Resist.),years,Eq. 42
+tau_rest,Learning time constant (Restor.),years,Eq. 43
+tau_supply,Learning time constant (Supply),years,Eq. 44
+k_adapt,Adaptation base decay rate,yr^-1,Eq. 33
+k_prep,Preparedness base decay rate,yr^-1,Eq. 10
+k_resist,Resistance base decay rate,yr^-1,Eq. 18
+k_restore,Restoration base decay rate,yr^-1,Eq. 27
+k_supply,Supply chain base decay rate,yr^-1,Eq. 38
+R_effective,Effective resilience after erosion,dimensionless,Eq. 50
+R_system,System resilience composite score,dimensionless,Eq. 48
+S_threat_min,Minimum baseline threat capability,dimensionless,Eq. 49
