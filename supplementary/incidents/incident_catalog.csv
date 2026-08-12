@@ -1,0 +1,64 @@
+id,year,description,primary_dim,secondary_dim,severity
+1,2007,"Unauthorized access to Terra/Landsat-7 ground command systems via internet-connected ground stations; default credentials exploited.",Resistance,Preparedness,4
+2,2007,"GPS signal jamming exercise disrupts civil aviation in the southwestern US for 3 days.",Resistance,,3
+3,2008,"Repeated interference with Terra EOS commanding via relay station; 12 intrusions over 3 months.",Resistance,,4
+4,2009,"SATCOM terminal compromise used as pivot into a military network.",Restoration,Resistance,3
+5,2009,"Spoofed GPS signals redirect maritime navigation (demonstration).",Resistance,,3
+6,2009,"Ground-station malware causes temporary telemetry loss for a commercial GEO satellite (3-day recovery).",Restoration,Resistance,2
+7,2010,"Intentional SATCOM interference during a major sporting event; jamming for 5 days.",Resistance,,3
+8,2011,"Ransomware on NASA JPL systems affects ground operations for multiple missions (2-week recovery).",Preparedness,Restoration,3
+9,2011,"Cyber attack on a European operator's ground systems; customer data accessed.",Resistance,Preparedness,2
+10,2012,"GPS jamming during a US military exercise affects civilian GPS within a 100-mile radius.",Resistance,,2
+11,2012,"Satellite-TV provider hacked; counterfeit smart cards produced (authentication supply-chain compromise).",SupplyChain,Resistance,3
+12,2012,"Suspected intrusion at US satellite manufacturers; attribution unclear.",Preparedness,,1
+13,2013,"GPS jamming affecting ships and aircraft over a 2-week period.",Resistance,,3
+14,2013,"Satellite phone system compromised; calls intercepted via encryption weakness.",Resistance,Preparedness,4
+15,2013,"Cyber attack on a space-weather monitoring ground station; data corrupted for 3 months.",Resistance,Restoration,3
+16,2014,"Interference with satellite communications during a regional conflict.",Resistance,,3
+17,2014,"SATCOM firmware vulnerability enabling remote code execution on thousands of modems.",Resistance,Preparedness,4
+18,2014,"GPS spoofing demonstration taking over a vessel navigation system.",Resistance,,2
+19,2015,"Cyber attack on government satellite communications; data exfiltrated.",Resistance,Preparedness,4
+20,2015,"Satellite-imagery provider hacked; images accessed and leaked.",Resistance,Restoration,3
+21,2015,"Jamming of SATCOM services affecting military and commercial users.",Resistance,,3
+22,2016,"Coordinated grid cyber attack accompanied by SATCOM jamming.",Resistance,Adaptation,4
+23,2016,"GPS interference near a major airport; suspected personal jammer.",Resistance,,2
+24,2016,"Satellite-TV piracy ring using compromised smart cards; 500,000+ users affected.",SupplyChain,Resistance,3
+25,2017,"GPS jamming in the eastern Mediterranean during military exercises.",Resistance,,2
+26,2017,"Cyber attack on a regional satellite operator; customer data breach.",Resistance,Preparedness,2
+27,2017,"Satellite ground station used as an entry point for a corporate network breach.",Resistance,SupplyChain,3
+28,2018,"GPS spoofing around a major airport affecting multiple flights.",Resistance,,3
+29,2018,"Cyber attack on a European operator's billing system; service disruption.",Restoration,Resistance,2
+30,2018,"Continued GPS jamming affecting regional shipping.",Resistance,Adaptation,2
+31,2018,"Satellite-IoT provider hacked; device data compromised.",Resistance,Preparedness,3
+32,2019,"GPS jamming during a multinational military exercise.",Resistance,,2
+33,2019,"Cyber attack on an operator's website; defacement only.",Resistance,,1
+34,2019,"APT group targeting satellite communications for command-and-control.",Adaptation,Resistance,3
+35,2019,"Satellite phone vulnerability allowing call interception.",Resistance,Preparedness,3
+36,2020,"GPS interference during military testing.",Resistance,,1
+37,2020,"Ransomware on a satellite ground-station operator; systems encrypted.",Restoration,Preparedness,3
+38,2020,"Supply-chain compromise of satellite components found during pre-launch testing.",SupplyChain,Preparedness,4
+39,2020,"SATCOM modem vulnerability disclosed affecting 500,000+ devices.",Resistance,Preparedness,4
+40,2020,"GPS spoofing affecting civilian aviation.",Resistance,,3
+41,2021,"Cyber attack on a satellite-imagery provider; data encrypted for ransom.",Restoration,Preparedness,3
+42,2021,"GPS jamming affecting regional shipping.",Resistance,,2
+43,2021,"Satellite-TV provider hack; 2-day service outage.",Restoration,Resistance,2
+44,2021,"Supply-chain attack on a satellite component manufacturer; backdoor discovered.",SupplyChain,Resistance,4
+45,2021,"Cyber espionage targeting space-research organizations.",Preparedness,Resistance,2
+46,2021,"GPS spoofing affecting maritime traffic.",Resistance,,3
+47,2021,"Satellite-internet provider DDoS; service degraded.",Resistance,Restoration,2
+48,2021,"Ground-station software vulnerability allowing unauthorized access.",Resistance,Preparedness,2
+49,2022,"Viasat KA-SAT attack: AcidRain wiper destroys ~40,000 modems across Europe.",SupplyChain,Resistance,5
+50,2022,"Sustained GPS spoofing/jamming disrupting aviation and military operations.",Resistance,,4
+51,2022,"Starlink terminals targeted with sustained RF interference near a conflict zone.",Resistance,Restoration,3
+52,2022,"Satellite-imagery providers experience DDoS during a geopolitical crisis.",Resistance,,3
+53,2022,"Wind-farm SATCOM outage following the Viasat attack affects 5,800 turbines.",SupplyChain,Resistance,4
+54,2022,"Cyber attack on a regional satellite-communications provider.",Resistance,Preparedness,3
+55,2022,"GPS interference during military exercises.",Resistance,,2
+56,2022,"Satellite-TV provider hacked; ransom demanded.",Restoration,Resistance,2
+57,2022,"Detected supply-chain compromise attempt reported by a member organization.",SupplyChain,Preparedness,1
+58,2022,"Cyber attack on a ground station; telemetry lost for 2 days.",Restoration,Resistance,2
+59,2022,"GPS jamming during regional military tensions.",Resistance,,3
+60,2022,"Enterprise email-server vulnerability exploited in an operator network.",Resistance,SupplyChain,3
+61,2022,"Satellite-IoT provider outage after a cyber attack.",Restoration,Resistance,2
+62,2022,"Hardware vulnerability in a satellite modem chip discovered.",SupplyChain,Preparedness,4
+63,2022,"Cyber espionage campaign targeting space startups.",Preparedness,Resistance,2
