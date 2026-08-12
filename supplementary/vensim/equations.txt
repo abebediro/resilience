@@ -1,0 +1,153 @@
+{ Space Cybersecurity Resilience Model — Vensim equation listing }
+{ Transcribed from Appendix I.1. If you have the original .mdl source
+  file, replace this .txt with it — Vensim equation order and sketch
+  layout are lost in the plain-text transcription below. }
+
+(01) FINAL TIME = 20
+     ~ years
+     ~ Simulation horizon: 15-year satellite mission plus 5-year post-mission.
+
+(02) INITIAL TIME = 0
+     ~ years
+     ~ Simulation start at satellite deployment.
+
+(03) TIME STEP = 0.0625
+     ~ years (~22.8 days)
+     ~ Quarterly resolution with additional precision for numerical stability.
+
+(04) SAVEPER = TIME STEP
+     ~ years
+
+(05) Preparedness = INTEG(prep_inflow - prep_outflow, Preparedness_0)
+     ~ dimensionless
+(06) prep_inflow = (tech_investment * tech_efficiency
+       + intel_investment * intel_efficiency) * adaptation_amplification_prep
+     ~ yr^-1
+(07) tech_investment = IF THEN ELSE(Time<3, 0.75, IF THEN ELSE(Time<8, 1.0, 1.0))
+       * base * prep_weight * 0.5
+     ~ M$/yr
+(08) intel_investment = IF THEN ELSE(Time<3, 0.5, IF THEN ELSE(Time<8, 0.8, 1.0))
+       * base * prep_weight * 0.5
+     ~ M$/yr
+(09) tech_efficiency = 0.8 * (1 - 0.3 * exp(-Time/5))
+     ~ dimensionless
+(10) intel_efficiency = 1.0 * (1 - 0.2 * exp(-Time/3))
+     ~ dimensionless
+(11) prep_outflow = k_prep * Preparedness^(1+mu) * (1 + alpha * sqrt(latency))
+     ~ yr^-1
+(12) latency = 0.25 + 0.1 * Time
+     ~ seconds
+
+(13) Resistance = INTEG(resist_inflow - resist_outflow, Resistance_0)
+     ~ dimensionless
+(14) resist_inflow = (robust_investment * robust_efficiency
+       + radhard_investment * radhard_efficiency
+       + comm_investment * comm_efficiency) * adaptation_amplification_res
+     ~ yr^-1
+(15) robust_investment = IF THEN ELSE(Time<3, 2.0, IF THEN ELSE(Time<8, 1.5, 1.0))
+       * base * resist_weight * 0.6
+     ~ M$/yr
+(16) radhard_investment = IF THEN ELSE(Time<3, 1.0, IF THEN ELSE(Time<8, 1.2, 1.0))
+       * base * resist_weight * 0.25
+     ~ M$/yr
+(17) comm_investment = IF THEN ELSE(Time<3, 0.5, IF THEN ELSE(Time<8, 0.8, 1.0))
+       * base * resist_weight * 0.15
+     ~ M$/yr
+(18) radhard_efficiency = 0.9 * (1 - 0.2 * exp(-cumulative_radiation/0.5))
+     ~ dimensionless
+(19) resist_outflow = k_resist * Resistance
+       * (1 + gamma * cumulative_radiation^1.9 + gamma_T * thermal_cycle)
+     ~ yr^-1
+(20) cumulative_radiation = MIN(1, 0.1 * Time + 0.02 * Time^2)
+     ~ dimensionless
+(21) thermal_cycle = 0.5 + 0.05 * Time
+     ~ dimensionless
+
+(22) Restoration = INTEG(restore_inflow - restore_outflow, Restoration_0)
+     ~ dimensionless
+(23) restore_inflow = (auto_investment * auto_efficiency
+       + forensic_investment * forensic_efficiency) * adaptation_amplification_rest
+     ~ yr^-1
+(24) auto_investment = IF THEN ELSE(Time<3, 0.8, IF THEN ELSE(Time<8, 1.0, 1.0))
+       * base * restore_weight * 0.7
+     ~ M$/yr
+(25) forensic_investment = IF THEN ELSE(Time<3, 0.4, IF THEN ELSE(Time<8, 0.7, 1.0))
+       * base * restore_weight * 0.3
+     ~ M$/yr
+(26) auto_efficiency = 1.0 * (1 - 0.1 * exp(-Time/4))
+     ~ dimensionless
+(27) forensic_efficiency = 0.7 * (1 + 0.3 * (1 - exp(-Time/5)))
+     ~ dimensionless
+(28) restore_outflow = k_restore * Restoration * (1 + beta * orbital_distance^1.4)
+     ~ yr^-1
+(29) orbital_distance = IF THEN ELSE(Time<10, 1, 1 + 0.1 * (Time-10))
+     ~ dimensionless
+
+(30) Adaptation = INTEG(adapt_inflow - adapt_outflow, Adaptation_0)
+     ~ dimensionless
+(31) adapt_inflow = (opt_investment * opt_efficiency
+       + improve_investment * improve_efficiency)
+     ~ yr^-1
+(32) opt_investment = IF THEN ELSE(Time<3, 0.2, IF THEN ELSE(Time<8, 0.5, 1.0))
+       * base * adapt_weight * 0.6
+     ~ M$/yr
+(33) improve_investment = IF THEN ELSE(Time<3, 0.1, IF THEN ELSE(Time<8, 0.3, 1.0))
+       * base * adapt_weight * 0.4
+     ~ M$/yr
+(34) adapt_outflow = k_adapt * Adaptation * (1 + alpha * sqrt(latency))
+     ~ yr^-1
+
+(35) SupplyChain = INTEG(supply_inflow - supply_outflow, SupplyChain_0)
+     ~ dimensionless
+(36) supply_inflow = supply_investment * supply_efficiency
+       * adaptation_amplification_supply
+     ~ yr^-1
+(37) supply_investment = IF THEN ELSE(Time<3, 0.6, IF THEN ELSE(Time<8, 0.8, 1.0))
+       * base * supply_weight
+     ~ M$/yr
+(38) supply_efficiency = 0.85 * (1 - 0.15 * exp(-Time/4))
+     ~ dimensionless
+(39) supply_outflow = k_supply * SupplyChain * (1 + eta * SC_risk + nu * G_complexity)
+     ~ yr^-1
+(40) SC_risk = 0.3 + 0.02 * Time
+     ~ dimensionless
+(41) G_complexity = 1.5 + 0.1 * Time
+     ~ dimensionless
+
+(42) adaptation_amplification_prep = 1 + psi_prep * Adaptation * LN(1 + Time/tau_prep)
+(43) adaptation_amplification_res = 1 + psi_res * Adaptation * LN(1 + Time/tau_res)
+(44) adaptation_amplification_rest = 1 + psi_rest * Adaptation * LN(1 + Time/tau_rest)
+(45) adaptation_amplification_supply = 1 + psi_supply * Adaptation * LN(1 + Time/tau_supply)
+
+(46) effective_prep = Preparedness * (1 - xi_prep * (1 - SupplyChain))
+(47) effective_resist = Resistance * (1 - xi_resist * (1 - SupplyChain))
+(48) effective_restore = Restoration * (1 - xi_restore * (1 - SupplyChain))
+(49) effective_adapt = Adaptation * (1 - xi_adapt * (1 - SupplyChain))
+
+(50) R_system = effective_prep
+       + (1 - effective_prep) * effective_resist
+       + (1 - effective_prep) * (1 - effective_resist) * effective_restore
+       + (1 - effective_prep) * (1 - effective_resist)
+         * (1 - effective_restore) * effective_adapt
+     ~ dimensionless
+(51) Threat = INTEG(theta * R_system * (1 + phi_adversary) - delta_threat * Threat, Threat_0)
+     ~ dimensionless
+(52) R_effective = R_system * (1 - gamma_threat
+       * MAX(0, Threat - S_threat_min) / (1 - S_threat_min))
+     ~ dimensionless
+
+{ Monte Carlo configuration }
+{ See ../python/monte_carlo.py PARAM_RANGES_80CI for the equivalent
+  sampling bounds used in the Python reference implementation. }
+:MACRO: MONTE_CARLO_SETUP()
+SIMULATE> MONTE CARLO
+METHOD = LATIN HYPERCUBE
+RUNS = 10000
+RANDOM SEED = 12345
+
+:OUTPUTS TO SAVE:
+R_system, R_effective, Preparedness, Resistance, Restoration,
+Adaptation, SupplyChain, Threat at TIME = 0,5,10,15,20
+
+:SENSITIVITY INDICES:
+COMPUTE SOBOL (FIRST ORDER, TOTAL ORDER) FOR ALL PARAMETERS
